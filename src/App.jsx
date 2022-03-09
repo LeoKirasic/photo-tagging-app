@@ -1,6 +1,11 @@
 import React from 'react';
+import GameContainer from './components/GameContainer';
 function App() {
-  return <div className="text-green-500"> Photo Tagging App</div>;
+  return (
+    <div className="flex justify-center">
+      <GameContainer></GameContainer>
+    </div>
+  );
 }
 
 export default App;
