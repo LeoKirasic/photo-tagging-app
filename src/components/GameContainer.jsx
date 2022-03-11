@@ -14,9 +14,14 @@ function GameContainer() {
         e.preventDefault();
         setAnchorPoint({ x: e.clientX, y: e.clientY });
         toggleMenu(true);
+
+        const bounds = e.target.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
+        console.log('X: ', x, 'Y: ', y);
       }}
     >
-      <img src={background} />;
+      <img className="max-h-96 max-w-4xl w-auto h-auto" src={background} />
       <ControlledMenu
         {...menuProps}
         anchorPoint={anchorPoint}
