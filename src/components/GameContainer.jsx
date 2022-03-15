@@ -21,7 +21,10 @@ function GameContainer() {
         console.log('X: ', x, 'Y: ', y);
       }}
     >
-      <img className="max-h-96 max-w-4xl w-auto h-auto" src={background} />
+      <img
+        className="max-h-96 max-w-4xl w-auto h-auto rounded-md "
+        src={background}
+      />
       <ControlledMenu
         {...menuProps}
         anchorPoint={anchorPoint}
