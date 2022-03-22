@@ -1,8 +1,10 @@
 import { React, useState } from 'react';
+import PropTypes from 'prop-types';
 import { ControlledMenu, MenuItem, useMenuState } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import checkCoordinates from '../helpers/checkCoordinates';
-function GameContainer() {
+import menuItemClickHandler from '../helpers/menuItemClickHandler';
+function GameContainer(props) {
   const background = require('../assets/background.jpg');
 
   const [menuProps, toggleMenu] = useMenuState();
@@ -37,7 +39,7 @@ function GameContainer() {
         <MenuItem
           value={'waldo'}
           onClick={(e) => {
-            checkCoordinates(e.value, clickedCoords.x, clickedCoords.y);
+            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
           }}
         >
           Waldo
@@ -45,7 +47,7 @@ function GameContainer() {
         <MenuItem
           value={'odlaw'}
           onClick={(e) => {
-            checkCoordinates(e.value, clickedCoords.x, clickedCoords.y);
+            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
           }}
         >
           Odlaw
@@ -53,7 +55,7 @@ function GameContainer() {
         <MenuItem
           value={'wizard'}
           onClick={(e) => {
-            checkCoordinates(e.value, clickedCoords.x, clickedCoords.y);
+            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
           }}
         >
           Wizard
@@ -64,3 +66,8 @@ function GameContainer() {
 }
 
 export default GameContainer;
+
+GameContainer.propTypes = {
+  clickedCharacters: PropTypes.array,
+  addCharacter: PropTypes.func,
+}
