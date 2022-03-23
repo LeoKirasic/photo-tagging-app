@@ -11,6 +11,24 @@ function GameContainer(props) {
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   const [clickedCoords, setClickedCoords] = useState({ x: 0, y: 0 });
 
+  const characters = ['Waldo', 'Odlaw', 'Wizard'];
+  const menuItems = characters.map((character) => (
+    <MenuItem
+      key={character}
+      value={character}
+      onClick={(e) => {
+        menuItemClickHandler(
+          e.value,
+          clickedCoords.x,
+          clickedCoords.y,
+          props.clickedCharacters,
+          props.addCharacter
+        );
+      }}
+    >
+      {character}
+    </MenuItem>
+  ));
   return (
     <div
       onContextMenu={(e) => {
@@ -36,48 +54,7 @@ function GameContainer(props) {
         anchorPoint={anchorPoint}
         onClose={() => toggleMenu(false)}
       >
-        <MenuItem
-          value={'waldo'}
-          onClick={(e) => {
-            menuItemClickHandler(
-              e.value,
-              clickedCoords.x,
-              clickedCoords.y,
-              props.clickedCharacters,
-              props.addCharacter
-            );
-          }}
-        >
-          Waldo
-        </MenuItem>
-        <MenuItem
-          value={'odlaw'}
-          onClick={(e) => {
-            menuItemClickHandler(
-              e.value,
-              clickedCoords.x,
-              clickedCoords.y,
-              props.clickedCharacters,
-              props.addCharacter
-            );
-          }}
-        >
-          Odlaw
-        </MenuItem>
-        <MenuItem
-          value={'wizard'}
-          onClick={(e) => {
-            menuItemClickHandler(
-              e.value,
-              clickedCoords.x,
-              clickedCoords.y,
-              props.clickedCharacters,
-              props.addCharacter
-            );
-          }}
-        >
-          Wizard
-        </MenuItem>
+        {menuItems}
       </ControlledMenu>
     </div>
   );
