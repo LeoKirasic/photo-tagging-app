@@ -36,7 +36,9 @@ function Form(props) {
         contentLabel="Example Modal"
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>Congratulations!</h3>
+          <h3>
+            Congratulations! You finished the game in {props.time} seconds!
+          </h3>
           <h2>Please enter your name below:</h2>
 
           <input {...register('Name Required', { required: true })} />
@@ -50,5 +52,6 @@ function Form(props) {
 }
 Form.propTypes = {
   isFinished: PropTypes.bool,
+  time: PropTypes.number,
 };
 export default Form;
