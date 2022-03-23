@@ -12,6 +12,9 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
+  overlay: {
+    backgroundColor: 'rgb(70 67 67 / 75%)',
+  },
 };
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
