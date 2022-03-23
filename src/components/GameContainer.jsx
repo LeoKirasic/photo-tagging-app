@@ -39,7 +39,13 @@ function GameContainer(props) {
         <MenuItem
           value={'waldo'}
           onClick={(e) => {
-            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
+            menuItemClickHandler(
+              e.value,
+              clickedCoords.x,
+              clickedCoords.y,
+              props.clickedCharacters,
+              props.addCharacter
+            );
           }}
         >
           Waldo
@@ -47,7 +53,13 @@ function GameContainer(props) {
         <MenuItem
           value={'odlaw'}
           onClick={(e) => {
-            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
+            menuItemClickHandler(
+              e.value,
+              clickedCoords.x,
+              clickedCoords.y,
+              props.clickedCharacters,
+              props.addCharacter
+            );
           }}
         >
           Odlaw
@@ -55,7 +67,13 @@ function GameContainer(props) {
         <MenuItem
           value={'wizard'}
           onClick={(e) => {
-            menuItemClickHandler(e.value, clickedCoords.x, clickedCoords.y, props.clickedCharacters, props.addCharacter);
+            menuItemClickHandler(
+              e.value,
+              clickedCoords.x,
+              clickedCoords.y,
+              props.clickedCharacters,
+              props.addCharacter
+            );
           }}
         >
           Wizard
@@ -70,4 +88,4 @@ export default GameContainer;
 GameContainer.propTypes = {
   clickedCharacters: PropTypes.array,
   addCharacter: PropTypes.func,
-}
+};
