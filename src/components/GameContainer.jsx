@@ -22,7 +22,8 @@ function GameContainer(props) {
           clickedCoords.x,
           clickedCoords.y,
           props.clickedCharacters,
-          props.addCharacter
+          props.addCharacter,
+          props.setFinished
         );
       }}
     >
@@ -65,4 +66,5 @@ export default GameContainer;
 GameContainer.propTypes = {
   clickedCharacters: PropTypes.array,
   addCharacter: PropTypes.func,
+  setFinished: PropTypes.func,
 };
