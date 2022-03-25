@@ -4,10 +4,14 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 
 const showError = (message) => {
-  toast.error(message);
+  toast.error(message, {
+    theme: 'dark',
+  });
 };
 const showSuccess = () => {
-  toast.success('Success!');
+  toast.success('Success!', {
+    theme: 'dark',
+  });
 };
 
 export { showError, showSuccess };
