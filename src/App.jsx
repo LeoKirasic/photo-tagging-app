@@ -22,8 +22,6 @@ function App() {
 
     const milis = Date.now() - timer;
 
-    const time = Math.floor(milis / 1000);
-
     setTimer(Math.floor(milis / 1000));
   }
 
