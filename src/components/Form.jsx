@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
+import onSubmit from '../helpers/onSubmit';
 
 const customStyles = {
   content: {
@@ -20,7 +21,6 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
 function Form(props) {
@@ -30,7 +30,7 @@ function Form(props) {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
   return (
     <div>
       <Modal
@@ -38,16 +38,34 @@ function Form(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="flex flex-col items-center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <h3>
-            Congratulations! You finished the game in {props.time} seconds!
+            Congratulations! You finished the game in {props.time} seconds
           </h3>
+
           <h2>Please enter your name below:</h2>
 
-          <input {...register('Name Required', { required: true })} />
-          {errors.exampleRequired && <span>This field is required</span>}
+          <div className="flex flex-col items-center">
+            <input
+              className=" border-cyan-300 outline-none rounded-md text-black"
+              {...register('name', { required: true })}
+            />
+            {errors.exampleRequired && <span>This field is required</span>}
+            <input
+              className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
+              type="submit"
+            />
+          </div>
 
-          <input type="submit" />
+          <input
+            className="text-white w-0"
+            defaultValue={props.time}
+            {...register('time')}
+            readOnly
+          />
         </form>
       </Modal>
     </div>
