@@ -13,6 +13,9 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    backgroundColor: '#252530',
+    color: 'white',
+    border: 'none',
   },
   overlay: {
     backgroundColor: 'rgb(70 67 67 / 75%)',
@@ -39,7 +42,10 @@ function ViewCharactersModal() {
 
   return (
     <div>
-      <button className="text-white" onClick={openModal}>
+      <button
+        className="text-white hover:text-blue hover:border-b hover:border-blue"
+        onClick={openModal}
+      >
         View Characters
       </button>
       <Modal
@@ -51,12 +57,15 @@ function ViewCharactersModal() {
       >
         {' '}
         <div className="flex">
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+          <h2 className="pr-24" ref={(_subtitle) => (subtitle = _subtitle)}>
             Find the Following Characters
           </h2>
-          <button className=" pl-24" onClick={closeModal}>
+          <div
+            className=" w-fit hover:text-blue cursor-pointer"
+            onClick={closeModal}
+          >
             Close
-          </button>
+          </div>
         </div>
         <div className="flex">
           <div className="flex flex-col items-center">
