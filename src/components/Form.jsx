@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import onSubmit from '../helpers/onSubmit';
-
+import { Link } from 'react-router-dom';
 const customStyles = {
   content: {
     top: '50%',
@@ -54,10 +54,13 @@ function Form(props) {
               {...register('name', { required: true })}
             />
             {errors.exampleRequired && <span>This field is required</span>}
-            <input
-              className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
-              type="submit"
-            />
+
+            <Link to="/leaderboard">
+              <input
+                className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
+                type="submit"
+              />
+            </Link>
           </div>
 
           <input
