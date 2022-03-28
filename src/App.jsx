@@ -4,8 +4,8 @@ import Header from './components/Header';
 import ViewCharactersModal from './components/ViewCharactersModal';
 import Form from './components/Form';
 import Leaderboard from './components/Leaderboard';
-import LeaderboardLayout from './LeaderboardLayout';
-import MainLayout from './MainLayout';
+import LeaderboardLayout from './components/layout/LeaderboardLayout';
+import MainLayout from './components/layout/MainLayout';
 import {
   BrowserRouter as Router,
   Switch,
