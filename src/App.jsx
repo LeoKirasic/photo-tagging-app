@@ -3,38 +3,25 @@ import GameContainer from './components/GameContainer';
 import Header from './components/Header';
 import ViewCharactersModal from './components/ViewCharactersModal';
 import Form from './components/Form';
+import Leaderboard from './components/Leaderboard';
+import LeaderboardLayout from './LeaderboardLayout';
+import MainLayout from './MainLayout';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+} from 'react-router-dom';
 function App() {
-  const [clickedCharacters, setClickedCharacters] = useState([]);
-  const [timer, setTimer] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
-  useEffect(() => {
-    const start = Date.now();
-    console.log('start time ', start);
-    setTimer(start);
-  }, []);
-
-  function addCharacter(id) {
-    setClickedCharacters((clickedCharacters) => [...clickedCharacters, id]);
-  }
-
-  function setFinished() {
-    setIsFinished(true);
-
-    const milis = Date.now() - timer;
-
-    setTimer(Math.floor(milis / 1000));
-  }
-
   return (
     <div className="flex justify-center flex-col items-center ">
-      <Header></Header>
-      <ViewCharactersModal></ViewCharactersModal>
-      <Form isFinished={isFinished} time={timer}></Form>
-      <GameContainer
-        clickedCharacters={clickedCharacters}
-        addCharacter={addCharacter}
-        setFinished={setFinished}
-      ></GameContainer>
+      <Router>
+        <Routes>
+          <Route path="/leaderboard" element={<Leaderboard />}></Route>
+          <Route path="/" element={<MainLayout />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
