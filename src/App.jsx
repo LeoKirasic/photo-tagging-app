@@ -1,18 +1,7 @@
 import { React, useState, useEffect } from 'react';
-import GameContainer from './components/GameContainer';
-import Header from './components/Header';
-import ViewCharactersModal from './components/ViewCharactersModal';
-import Form from './components/Form';
 import Leaderboard from './components/Leaderboard';
-import LeaderboardLayout from './components/layout/LeaderboardLayout';
 import MainLayout from './components/layout/MainLayout';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Routes,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="flex justify-center flex-col items-center ">
