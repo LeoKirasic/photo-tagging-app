@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import { setDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
-import { app, db } from '../firebase';
+import { db } from '../firebase';
 import uniqid from 'uniqid';
 
 const customStyles = {
