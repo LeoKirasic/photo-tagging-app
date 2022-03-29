@@ -2,6 +2,8 @@ import { React, useState } from 'react';
 import PropTypes from 'prop-types';
 import { ControlledMenu, MenuItem, useMenuState } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/theme-dark.css';
+
 import menuItemClickHandler from '../helpers/menuItemClickHandler';
 function GameContainer(props) {
   const background = require('../assets/background.jpg');
@@ -9,6 +11,7 @@ function GameContainer(props) {
   const [menuProps, toggleMenu] = useMenuState();
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   const [clickedCoords, setClickedCoords] = useState({ x: 0, y: 0 });
+  const [isDark, setDark] = useState(true);
 
   const characters = ['Waldo', 'Odlaw', 'Wizard'];
   const menuItems = characters.map((character) => (
@@ -53,6 +56,7 @@ function GameContainer(props) {
         {...menuProps}
         anchorPoint={anchorPoint}
         onClose={() => toggleMenu(false)}
+        theming={isDark ? 'dark' : undefined}
       >
         {menuItems}
       </ControlledMenu>
