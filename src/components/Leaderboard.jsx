@@ -1,6 +1,5 @@
 import React from 'react';
 import getLeaderboard from '../helpers/getLeaderboard';
-import LeaderboardCard from './LeaderboardCard';
 import LeaderboardList from './LeaderboardList';
 import { useState, useEffect } from 'react';
 
