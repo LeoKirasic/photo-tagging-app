@@ -9,7 +9,7 @@ async function getLeaderboard() {
       snapshot.docs.forEach((doc) => {
         leaderboard.push({ ...doc.data(), id: doc.id });
       });
-
+      leaderboard.sort((a, b) => a.time - b.time);
       resolve(leaderboard);
     });
   });
