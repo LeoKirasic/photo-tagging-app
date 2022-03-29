@@ -8,8 +8,8 @@ function Leaderboard() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const promise = getLeaderboard();
+  useEffect(async () => {
+    const promise = await getLeaderboard();
     promise.then((data) => {
       setLeaderboard(data);
       setIsLoaded(true);
