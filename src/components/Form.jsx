@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
-import onSubmit from '../helpers/onSubmit';
-import { Link } from 'react-router-dom';
+import { setDoc, doc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import { app, db } from '../firebase';
+import uniqid from 'uniqid';
+
 const customStyles = {
   content: {
     top: '50%',
@@ -30,7 +33,13 @@ function Form(props) {
     watch,
     formState: { errors },
   } = useForm();
+  let navigate = useNavigate();
 
+  async function formSubmit(data) {
+    await setDoc(doc(db, 'leaderboards', uniqid()), data);
+
+    navigate('../leaderboard', { replace: true });
+  }
   return (
     <div>
       <Modal
@@ -40,7 +49,7 @@ function Form(props) {
       >
         <form
           className="flex flex-col items-center"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(formSubmit)}
         >
           <h3>
             Congratulations! You finished the game in {props.time} seconds
@@ -55,12 +64,10 @@ function Form(props) {
             />
             {errors.exampleRequired && <span>This field is required</span>}
 
-            <Link to="/leaderboard">
-              <input
-                className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
-                type="submit"
-              />
-            </Link>
+            <input
+              className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
+              type="submit"
+            />
           </div>
 
           <input
