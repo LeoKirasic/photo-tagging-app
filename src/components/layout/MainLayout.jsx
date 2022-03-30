@@ -10,7 +10,6 @@ function MainLayout() {
   const [isFinished, setIsFinished] = useState(false);
   useEffect(() => {
     const start = Date.now();
-    console.log('start time ', start);
     setTimer(start);
   }, []);
 
