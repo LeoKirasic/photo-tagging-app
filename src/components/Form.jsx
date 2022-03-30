@@ -24,7 +24,7 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
+Modal.setAppElement(document.getElementById('root'));
 
 function Form(props) {
   const {
