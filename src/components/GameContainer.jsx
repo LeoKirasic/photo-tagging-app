@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { ControlledMenu, MenuItem, useMenuState } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/theme-dark.css';
-
 import menuItemClickHandler from '../helpers/menuItemClickHandler';
+
 function GameContainer(props) {
   const background = require('../assets/background.jpg');
 
