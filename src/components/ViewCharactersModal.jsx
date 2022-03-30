@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 const waldo = require('../assets/waldo.jpg');
 const odlaw = require('../assets/odlaw.jpg');
 const wizard = require('../assets/wizard.jpg');
-
 const customStyles = {
   content: {
     top: '50%',
@@ -22,8 +21,7 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement('#root');
-
+Modal.setAppElement(document.getElementById('root'));
 function ViewCharactersModal() {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
