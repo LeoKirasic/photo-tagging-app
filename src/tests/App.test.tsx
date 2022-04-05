@@ -4,7 +4,8 @@ import Modal from 'react-modal';
 
 test('renders main layout', () => {
   render(<App />);
-  Modal.setAppElement(document.getElementById('root'));
+  Modal.setAppElement(document.getElementById('root') as any);
+
   const linkElement = screen.getByText('Waldo');
   expect(linkElement).toBeInTheDocument();
 });
