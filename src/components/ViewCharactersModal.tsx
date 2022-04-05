@@ -21,9 +21,9 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement(document.getElementById('root'));
+Modal.setAppElement(document.getElementById('root') as any);
 function ViewCharactersModal() {
-  let subtitle;
+  let subtitle: any;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {

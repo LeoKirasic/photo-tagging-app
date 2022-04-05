@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import { setDoc, doc } from 'firebase/firestore';
@@ -24,9 +23,14 @@ const customStyles = {
   },
 };
 
-Modal.setAppElement(document.getElementById('root'));
+interface MainLayoutProps {
+  isFinished: boolean;
+  time: number;
+}
 
-function Form(props) {
+Modal.setAppElement(document.getElementById('root') as any);
+
+function Form(props: MainLayoutProps) {
   const {
     register,
     handleSubmit,
@@ -35,7 +39,7 @@ function Form(props) {
   } = useForm();
   let navigate = useNavigate();
 
-  async function formSubmit(data) {
+  async function formSubmit(data: object) {
     await setDoc(doc(db, 'leaderboards', uniqid()), data);
 
     navigate('../leaderboard', { replace: true });
@@ -81,8 +85,4 @@ function Form(props) {
     </div>
   );
 }
-Form.propTypes = {
-  isFinished: PropTypes.bool,
-  time: PropTypes.number,
-};
 export default Form;

@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LeaderboardCard from './LeaderboardCard';
-function LeaderboardList(props) {
+
+interface leaderboardObject {
+  id: string;
+  name: string;
+  time: string;
+}
+
+interface LeaderboardProps {
+  items: Array<leaderboardObject>;
+}
+
+function LeaderboardList(props: LeaderboardProps) {
   const items = props.items;
   return (
     <ul>

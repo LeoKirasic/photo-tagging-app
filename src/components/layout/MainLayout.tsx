@@ -1,11 +1,12 @@
-import { React, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import React from 'react';
 import GameContainer from '../GameContainer';
 import Header from '../Header';
 import ViewCharactersModal from '../ViewCharactersModal';
 import Form from '../Form';
 
 function MainLayout() {
-  const [clickedCharacters, setClickedCharacters] = useState([]);
+  const [clickedCharacters, setClickedCharacters] = useState<Array<string>>([]);
   const [timer, setTimer] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   useEffect(() => {
@@ -13,7 +14,7 @@ function MainLayout() {
     setTimer(start);
   }, []);
 
-  function addCharacter(id) {
+  function addCharacter(id: string) {
     setClickedCharacters((clickedCharacters) => [...clickedCharacters, id]);
   }
 

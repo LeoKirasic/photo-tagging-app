@@ -1,11 +1,17 @@
-import { React, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useState } from 'react';
 import { ControlledMenu, MenuItem, useMenuState } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/theme-dark.css';
 import menuItemClickHandler from '../helpers/menuItemClickHandler';
 
-function GameContainer(props) {
+interface MainLayoutProps {
+  clickedCharacters: Array<string>;
+  addCharacter: Function;
+  setFinished: Function;
+}
+
+function GameContainer(props: MainLayoutProps) {
   const background = require('../assets/background.jpg');
 
   const [menuProps, toggleMenu] = useMenuState();
@@ -39,7 +45,7 @@ function GameContainer(props) {
         setAnchorPoint({ x: e.clientX, y: e.clientY });
         toggleMenu(true);
 
-        const bounds = e.target.getBoundingClientRect();
+        const bounds = (e.target as HTMLElement).getBoundingClientRect();
         const x = e.clientX - bounds.left;
         const y = e.clientY - bounds.top;
         setClickedCoords({
@@ -65,9 +71,3 @@ function GameContainer(props) {
 }
 
 export default GameContainer;
-
-GameContainer.propTypes = {
-  clickedCharacters: PropTypes.array,
-  addCharacter: PropTypes.func,
-  setFinished: PropTypes.func,
-};
