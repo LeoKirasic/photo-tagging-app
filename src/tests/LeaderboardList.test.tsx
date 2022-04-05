@@ -1,7 +1,7 @@
 import LeaderboardList from '../components/LeaderboardList';
 import { render, screen } from '@testing-library/react';
 
-const items = [{ name: 'Leo K.', time: '5' }];
+const items = [{ name: 'Leo K.', time: '5', id: '123456' }];
 
 test('Renders LeaderboardList component with appropriate items', () => {
   render(<LeaderboardList items={items} />);
