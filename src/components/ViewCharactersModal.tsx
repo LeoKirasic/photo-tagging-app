@@ -40,10 +40,7 @@ function ViewCharactersModal() {
 
   return (
     <div>
-      <button
-        className="text-white hover:text-blue hover:border-b hover:border-blue"
-        onClick={openModal}
-      >
+      <button className="text-white hover:text-blue" onClick={openModal}>
         View Characters
       </button>
       <Modal
