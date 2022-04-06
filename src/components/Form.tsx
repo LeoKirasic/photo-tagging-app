@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import { setDoc, doc } from 'firebase/firestore';
@@ -31,6 +32,7 @@ interface MainLayoutProps {
 Modal.setAppElement(document.getElementById('root') as any);
 
 function Form(props: MainLayoutProps) {
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -40,6 +42,7 @@ function Form(props: MainLayoutProps) {
   let navigate = useNavigate();
 
   async function formSubmit(data: object) {
+    setButtonDisabled(true);
     await setDoc(doc(db, 'leaderboards', uniqid()), data);
 
     navigate('../leaderboard', { replace: true });
@@ -71,6 +74,7 @@ function Form(props: MainLayoutProps) {
             <input
               className=" w-fit hover:cursor-pointer hover:text-blue hover:border-b hover:border-blue"
               type="submit"
+              disabled={buttonDisabled}
             />
           </div>
 
