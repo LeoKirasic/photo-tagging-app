@@ -44,6 +44,6 @@ firebase deploy
  
 # Reflections
         
-TBD
+This is my favorite project by far. It was fun for two reasons: The idea of the project, and the new technologies I was putting to use. I wanted to get more practice with typescript, which I really got by just jumping straight in and learning from my mistakes. I also leveraged firebase for this project. More specifically, the firestore database it provides. The coordinates of the characters were saved in the firestore database, and then checked when a selection is made. I also used firestore for saving user submissions after finding all three characters! 
         
 </div>
